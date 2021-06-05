@@ -1,0 +1,19 @@
+{
+  "name": "web-scrapping-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "lite-server index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs-extra": "^3.0.1",
+    "lite-server": "^2.6.1",
+    "node-html-parser": "^3.3.4",
+    "puppeteer": "^10.0.0"
+  }
+}
