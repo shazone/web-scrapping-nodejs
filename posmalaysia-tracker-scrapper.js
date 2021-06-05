@@ -10,7 +10,7 @@ const fs = require('fs-extra');
 
     await page.goto('https://sendparcel.poslaju.com.my/open/trace?tno=ERC591633613MY');
 
-    const datas = await page.evaluate(() => {
+    const data = await page.evaluate(() => {
         const trs = Array.from(document.querySelectorAll('table tr'))
         console.log(trs);
         return trs.map(tr => tr.innerText)    
@@ -27,11 +27,11 @@ const fs = require('fs-extra');
     //create csv
     await fs.writeFile('poslaju-tracker.csv','');
 
-    console.log(datas);
+    console.log(data);
     //data.forEach( d => {await fs.appendFile('poslaju-tracker.csv', d.replaceAll("\t", ","))});
 
-    for(const data of datas){
-        await fs.appendFile('poslaju-tracker.csv', data.replaceAll(",","-").replaceAll("\t", ",")+"\n");
+    for(const d of data){
+        await fs.appendFile('poslaju-tracker.csv', d.replaceAll(",","-").replaceAll("\t", ",")+"\n");
     }
 
 })();
